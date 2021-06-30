@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 import React from "react";
-import PuffLoader from "react-spinners/PuffLoader";
+import PulseLoader from "react-spinners/PulseLoader";
 
 export const Spinner = ({ loading }) => (
     <React.Fragment>
@@ -23,7 +23,7 @@ export const Spinner = ({ loading }) => (
 				left: 40%;
 			`}
 		>
-			<PuffLoader loading={loading} size={150} color={'royalblue'} />
+			<PulseLoader loading={loading} size={10} color={'royalblue'} />
 		</span>
 	</div>
     )}

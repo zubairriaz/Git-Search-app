@@ -1,5 +1,5 @@
 import React,{useContext} from 'react';
-import request from '../utils/request';
+import {request} from '../utils/utils';
 
 const Store = React.createContext();
 

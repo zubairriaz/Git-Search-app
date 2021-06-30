@@ -3,6 +3,7 @@ import { css } from "@emotion/react";
 import React, { useEffect, useState } from "react";
 import arrowdown from "../static/images/arrow-down.png";
 import arrowup from "../static/images/arrow-up.png";
+import {sortData,toggle,updateColumns} from "../utils/utils"
 
 export default function ResultsTable({ columns, data }) {
 	const [items, setItems] = useState([]);
@@ -143,54 +144,4 @@ const getHeaderSpanCss = () => {
 			cursor: pointer;
 		}
 	`;
-};
-
-const sortObj = (property) => (a, b) => {
-	return a[property].localeCompare(b[property]);
-};
-
-const invert =
-	(fn) =>
-	(...args) =>
-		-fn(...args);
-
-const toggle = (function () {
-	let bit = false;
-	return () => {
-		bit = !bit;
-		return bit;
-	};
-})();
-
-const sortData = (data, column, reverse = false) => {
-	let sortedData;
-	data = copy(data);
-	if (reverse) {
-		sortedData = data.sort(invert(sortObj(column["key"])));
-	} else {
-		sortedData = data.sort(sortObj(column["key"]));
-	}
-	return sortedData;
-};
-
-const updateColumns = (columns, column, again = true) => {
-	return columns.map((item) =>
-		item.key == column.key
-			? again
-				? {
-						...item,
-						isSorted: true,
-						isSortedAgain: !item.isSortedAgain,
-				  }
-				: {
-						...item,
-						isSorted: true,
-						isSortedAgain: false,
-				  }
-			: { ...item, isSorted: false, isSortedAgain: false }
-	);
-};
-
-const copy = (data) => {
-	return data ? JSON.parse(JSON.stringify(data)) : undefined;
 };
