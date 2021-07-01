@@ -19,8 +19,8 @@ export const Spinner = ({ loading }) => (
 		<span
 			css={css`
 				position: relative;
-				top: 40%;
-				left: 40%;
+				top: 45%;
+				left: 50%;
 			`}
 		>
 			<PulseLoader loading={loading} size={10} color={'royalblue'} />
