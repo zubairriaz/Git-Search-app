@@ -67,3 +67,5 @@ export const updateColumns = (columns, column, again = true) => {
 export const copy = (data) => {
 	return data ? JSON.parse(JSON.stringify(data)) : undefined;
 };
+
+export const replaceText = (url, searchTerm) => url.replace("{login}", searchTerm);

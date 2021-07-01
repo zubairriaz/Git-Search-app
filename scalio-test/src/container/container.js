@@ -6,17 +6,26 @@ import { useStore } from "../store/Store";
 import { columns } from "../utils/constants";
 import Search from "../components/Search";
 import {Spinner} from "../components/spinner";
+import {replaceText} from "../utils/utils"
+import { url } from "../utils/constants";
 
 const Results = lazy(() => import("../components/Results"));
 
 function Container() {
 	const [state] = useStore();
 	const [searchTerm, setSearchTerm] = useState("");
+	const [_, dispatch, apiRequest] = useStore();
+
 	const onChangeText = useCallback(
 		(e) => setSearchTerm(e.target.value),
 		[searchTerm]
 	);
 
+	async function onSubmitForm(e) {
+		e.preventDefault();
+		let rUrl = replaceText(url,searchTerm);
+		await apiRequest(rUrl);
+	}
 
 	const getItems = () => (state.item ? state.item.items : undefined);
 	return (
@@ -27,6 +36,7 @@ function Container() {
 					onChangeText={onChangeText}
 					searchTerm={searchTerm}
                     errorMessage= {state.errorMessage}
+					onSubmitForm = {onSubmitForm}
 				></Search>{" "}
 			</div>
 			<Suspense fallback={<Spinner></Spinner>}>

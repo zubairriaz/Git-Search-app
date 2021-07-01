@@ -12,7 +12,7 @@ import mockAxios from "axios";
 import { expect } from "@jest/globals";
 
 describe("extract data", () => {
-	test("extraact Data Working Correctly", () => {
+	test("extract Data Working Correctly", () => {
 		let obj = { data: "1" };
 		let extractedData = extractData(obj);
 		expect(extractedData).toBe("1");

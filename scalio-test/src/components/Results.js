@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import ResultTable from "./ResultsTable";
 import { columns } from "../utils/constants";
 import Pagination from "./pagination";
-import { url, PAGE_LIMT } from "../utils/constants";
+import { url } from "../utils/constants";
 import { useStore } from "../store/Store";
 
 export default function Results({ item, searchTerm }) {
@@ -41,13 +41,10 @@ export default function Results({ item, searchTerm }) {
 					<ResultTable
 						data={item.items}
 						columns={columns}
-					></ResultTable>
-					<Pagination
 						currentPage={currentPage}
 						pages={stateItem.total_count}
-						pageLimit={PAGE_LIMT}
 						setPage={onSetPage}
-					></Pagination>
+					></ResultTable>
 				</React.Fragment>
 			)}
 		</React.Fragment>

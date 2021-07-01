@@ -4,8 +4,10 @@ import React, { useEffect, useState } from "react";
 import arrowdown from "../static/images/arrow-down.png";
 import arrowup from "../static/images/arrow-up.png";
 import {sortData,toggle,updateColumns} from "../utils/utils"
+import Pagination from "./pagination";
+import { PAGE_LIMT } from "../utils/constants";
 
-export default function ResultsTable({ columns, data }) {
+export default function ResultsTable({ columns, data, currentPage, pages, setPage }) {
 	const [items, setItems] = useState([]);
 	const [stateColumns, setStateColumns] = useState([]);
 
@@ -80,6 +82,12 @@ export default function ResultsTable({ columns, data }) {
 				<TableHeader columns={stateColumns}></TableHeader>
 				<TableRows data={items} columns={stateColumns}></TableRows>
 			</table>
+			<Pagination
+						currentPage={currentPage}
+						pages={pages}
+						pageLimit={PAGE_LIMT}
+						setPage={setPage}
+					></Pagination>
 		</React.Fragment>
 	);
 }

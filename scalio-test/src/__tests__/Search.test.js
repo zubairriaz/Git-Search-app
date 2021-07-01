@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { render, screen, waitFor } from '@testing-library/react';
+import { render, screen, waitFor, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event'
 
 import { shallow } from 'enzyme';
@@ -19,6 +19,17 @@ test('Typing In Input Renders Correct Result', async () => {
   await waitFor(() => {
      expect(screen.queryByPlaceholderText(/Enter Login Text/i)).toHaveValue("hello");
   });
+});
+
+test("Form can be submited", () => {
+
+    const mockSubmit = jest.fn();
+    const { debug, queryByTestId } = render(<Search onSubmitForm={mockSubmit}/>);
+
+    fireEvent.submit(queryByTestId("form"));
+
+    expect(mockSubmit).toHaveBeenCalled(); // Test if handleSubmit has been called 
+
 });
 
 

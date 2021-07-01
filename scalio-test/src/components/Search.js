@@ -4,16 +4,8 @@ import React from "react";
 import { url } from "../utils/constants";
 import { useStore } from "../store/Store";
 
-export default function Search({ onChangeText, searchTerm, errorMessage }) {
-	const [_, dispatch, apiRequest] = useStore();
-	const replaceText = (url) => url.replace("{login}", searchTerm);
-
-	async function onSubmitForm(e) {
-		e.preventDefault();
-		let rUrl = replaceText(url);
-		await apiRequest(rUrl);
-	}
-	return (
+export default function Search({ onChangeText, searchTerm, errorMessage, onSubmitForm }) {
+return (
 		<React.Fragment>
 			<form onSubmit={onSubmitForm}>
 				<input
@@ -26,6 +18,7 @@ export default function Search({ onChangeText, searchTerm, errorMessage }) {
 				/>
 
 				<input
+				    data-testid="form"
 					css={getButtonCss()}
 					type="submit"
 					value="Submit"
