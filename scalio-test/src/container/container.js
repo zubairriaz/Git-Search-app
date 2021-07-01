@@ -18,14 +18,13 @@ function Container() {
 
 	const onChangeText = useCallback(
 		(e) => setSearchTerm(e.target.value),
-		[searchTerm]
 	);
 
-	async function onSubmitForm(e) {
+	const onSubmitForm =useCallback(async (e)=> {
 		e.preventDefault();
 		let rUrl = replaceText(url,searchTerm);
 		await apiRequest(rUrl);
-	}
+	})
 
 	const getItems = () => (state.item ? state.item.items : undefined);
 	return (
