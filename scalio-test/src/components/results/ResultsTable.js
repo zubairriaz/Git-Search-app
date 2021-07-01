@@ -1,20 +1,19 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 import React, { useEffect, useState } from "react";
-import arrowdown from "../../static/images/arrow-down.png";
-import arrowup from "../../static/images/arrow-up.png";
 import {sortData,toggle,updateColumns} from "../../utils/utils"
 import Pagination from "./pagination";
 import { PAGE_LIMT } from "../../utils/constants";
+import { BsArrowUpShort } from "react-icons/bs";
+import { BsArrowDownShort } from "react-icons/bs";
+
+
 
 export default function ResultsTable({ columns, data, currentPage, pages, setPage }) {
 	const [items, setItems] = useState([]);
 	const [stateColumns, setStateColumns] = useState([]);
 
 	useEffect(() => {
-		let column = columns.filter((column) => column.isSorted)[0];
-		let sortedData = sortData(data, column, false);
-		setItems(sortedData);
 		setStateColumns(columns);
 	}, []);
 
@@ -59,12 +58,12 @@ export default function ResultsTable({ columns, data, currentPage, pages, setPag
 									{column &&
 										column.isSorted &&
 										!column.isSortedAgain && (
-											<img src={arrowdown}></img>
+											<BsArrowDownShort></BsArrowDownShort>
 										)}
 									{column &&
 										column.isSorted &&
 										column.isSortedAgain && (
-											<img src={arrowup}></img>
+											<BsArrowUpShort></BsArrowUpShort>
 										)}
 								</span>
 							</div>
