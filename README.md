@@ -1,6 +1,10 @@
-# Getting Started with Create React App
+# Scaio Test App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This app uses the github Api and allow the users to search on Login Name and display results in the Grid format.
+
+This app uses React, React hooks, Emotion/React for styling and react-spinners
+
+
 
 ## Available Scripts
 
@@ -18,6 +22,11 @@ You will also see any lint errors in the console.
 
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+
+
+### `npm test -- --env=jsdom --coverage`
+Gives coverage report of the test
+
 
 ### `npm run build`
 
