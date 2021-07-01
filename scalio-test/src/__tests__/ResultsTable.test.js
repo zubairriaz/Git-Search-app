@@ -1,17 +1,13 @@
 import React from 'react';
 
-import { fireEvent, render} from '@testing-library/react';
+import {  render} from '@testing-library/react';
 
-import { shallow } from 'enzyme';
 
 import ResultsTable from '../components/ResultsTable';
 import {StoreProvider} from "../store/Store"
 import {columns} from "../utils/constants"
 
-test('Check If Results Table Loads Successfully', () => {
-  const search = shallow(<StoreProvider><ResultsTable/></StoreProvider>);
-  expect(search).toMatchSnapshot();
-});
+
 let table;
 beforeEach(()=>{table = render(<StoreProvider><ResultsTable columns={columns} data={[]}/></StoreProvider>)})
 
