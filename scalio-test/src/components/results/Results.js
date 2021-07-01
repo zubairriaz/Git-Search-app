@@ -1,9 +1,9 @@
 
 import React, { useEffect, useState } from "react";
 import ResultTable from "./ResultsTable";
-import { columns } from "../utils/constants";
-import { url } from "../utils/constants";
-import { useStore } from "../store/Store";
+import { columns } from "../../utils/constants";
+import { url } from "../../utils/constants";
+import { useStore } from "../../store/Store";
 
 export default function Results({ item, searchTerm }) {
 	const [_, dispatch, apiRequest] = useStore();

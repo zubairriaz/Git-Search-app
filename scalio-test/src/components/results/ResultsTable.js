@@ -1,11 +1,11 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 import React, { useEffect, useState } from "react";
-import arrowdown from "../static/images/arrow-down.png";
-import arrowup from "../static/images/arrow-up.png";
-import {sortData,toggle,updateColumns} from "../utils/utils"
+import arrowdown from "../../static/images/arrow-down.png";
+import arrowup from "../../static/images/arrow-up.png";
+import {sortData,toggle,updateColumns} from "../../utils/utils"
 import Pagination from "./pagination";
-import { PAGE_LIMT } from "../utils/constants";
+import { PAGE_LIMT } from "../../utils/constants";
 
 export default function ResultsTable({ columns, data, currentPage, pages, setPage }) {
 	const [items, setItems] = useState([]);
@@ -45,8 +45,7 @@ export default function ResultsTable({ columns, data, currentPage, pages, setPag
 					{columns.map((column) => (
 						<th
 							css={css`
-								padding-right: 100px;
-								border: 1px solid black;
+								border: 1px solid lightblue;
 							`}
 							key={column.id}
 						>

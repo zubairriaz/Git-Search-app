@@ -4,12 +4,11 @@ import React, { useCallback, useState } from "react";
 import { lazy, Suspense } from "react";
 import { useStore } from "../store/Store";
 import { columns } from "../utils/constants";
-import Search from "../components/Search";
-import {Spinner} from "../components/spinner";
+import Search from "../components/search/Search";
+import {Spinner} from "../components/common/spinner";
 import {replaceText} from "../utils/utils"
 import { url } from "../utils/constants";
-
-const Results = lazy(() => import("../components/Results"));
+const Results = lazy(() => import("../components/results/Results"));
 
 function Container() {
 	const [state] = useStore();
@@ -41,11 +40,7 @@ function Container() {
 			</div>
 			<Suspense fallback={<Spinner></Spinner>}>
 				<div
-					css={css`
-						margin: auto;
-						width: 45%;
-						margin-top: 20px;
-					`}
+					css={defaultCss(1)}
 				>
 					<Results
 						columns={columns}

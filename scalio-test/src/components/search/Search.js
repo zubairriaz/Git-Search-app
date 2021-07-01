@@ -33,6 +33,7 @@ export default function Search({
 					css={css`
 						font-size: 12px;
 						color: red;
+						display:block;
 					`}
 				>
 					{errorMessage}
@@ -58,6 +59,11 @@ const getInputCss = (error) => {
 		padding-right: 20px;
 		padding-top: 12px;
 		padding-bottom: 12px;
+		&:focus {
+			outline: none !important;
+			border:1px solid royalblue;
+			box-shadow: 0 0 10px royalblue;
+		}
 	`;
 };
 

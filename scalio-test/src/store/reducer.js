@@ -5,21 +5,20 @@ export const initialState = {
 	errorMessage: "",
 };
 
-
 export const appReducer = (state = initialState, action) => {
 	if (action.type === SET_ITEM) {
 		return {
 			...state,
 			item: { ...action.item },
 			isLoading: false,
-      errorMessage:""
+			errorMessage:action.item.items.length > 0  ? "":"No records found",
 		};
 	}
 	if (action.type === SET_ERROR_MESSAGE) {
 		return {
 			...state,
 			errorMessage: extractMessage(action.message),
-      item:{items:[],total_count:0},
+			item: { items: [], total_count: 0 },
 			isLoading: false,
 		};
 	}
@@ -31,5 +30,4 @@ export const appReducer = (state = initialState, action) => {
 	}
 };
 
-
-const extractMessage=res=>res? res.data? res.data.message : "" :"";
+const extractMessage = (res) => (res ? (res.data ? res.data.message : "") : "");
