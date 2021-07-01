@@ -48,7 +48,7 @@ export const sortData = (data, column, reverse = false) => {
 
 export const updateColumns = (columns, column, again = true) => {
 	return columns.map((item) =>
-		item.key == column.key
+		item.key === column.key
 			? again
 				? {
 						...item,

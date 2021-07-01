@@ -15,16 +15,17 @@ function Container() {
 	const [state] = useStore();
 	const [searchTerm, setSearchTerm] = useState("");
 	const [_, dispatch, apiRequest] = useStore();
+	console.log(dispatch,_)
 
 	const onChangeText = useCallback(
-		(e) => setSearchTerm(e.target.value),
+		(e) => setSearchTerm(e.target.value),[]
 	);
 
 	const onSubmitForm =useCallback(async (e)=> {
 		e.preventDefault();
 		let rUrl = replaceText(url,searchTerm);
 		await apiRequest(rUrl);
-	})
+	},[apiRequest,searchTerm])
 
 	const getItems = () => (state.item ? state.item.items : undefined);
 	return (

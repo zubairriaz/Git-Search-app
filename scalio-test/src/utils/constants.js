@@ -19,6 +19,7 @@ export const columns = [
                     width="50px"
                     height="50px"
 					src={item["avatar_url"]}
+					alt="avatar_url"
 				></img>
 			);
 		},

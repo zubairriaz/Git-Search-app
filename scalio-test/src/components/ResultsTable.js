@@ -22,12 +22,12 @@ export default function ResultsTable({ columns, data, currentPage, pages, setPag
 		let column = columns.filter((column) => column.isSorted)[0];
 		let sortedData = sortData(data, column, false);
 		setItems(sortedData);
-	}, [data]);
+	}, [columns,data]);
 
 	function SortByColumn(column) {
 		let sortedData, updatedColumns;
 		let col = stateColumns.filter((column) => column.isSorted)[0];
-		if (col.key == column.key) {
+		if (col.key ===  column.key) {
 			sortedData = sortData(data, column, toggle());
 			updatedColumns = updateColumns(stateColumns, column);
 		} else {

@@ -1,9 +1,7 @@
-/** @jsxImportSource @emotion/react */
-import { css } from "@emotion/react";
+
 import React, { useEffect, useState } from "react";
 import ResultTable from "./ResultsTable";
 import { columns } from "../utils/constants";
-import Pagination from "./pagination";
 import { url } from "../utils/constants";
 import { useStore } from "../store/Store";
 
@@ -26,7 +24,7 @@ export default function Results({ item, searchTerm }) {
 
 	useEffect(() => {
 		if (
-			stateItem.total_count != item.total_count &&
+			stateItem.total_count !== item.total_count &&
 			JSON.stringify(stateItem.items) !== JSON.stringify(item.items)
 		) {
 			setCurrentPage(1);

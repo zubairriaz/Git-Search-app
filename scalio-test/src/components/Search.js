@@ -1,8 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 import React from "react";
-import { url } from "../utils/constants";
-import { useStore } from "../store/Store";
 
 export default function Search({
 	onChangeText,

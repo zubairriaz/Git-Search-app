@@ -5,7 +5,6 @@ export const initialState = {
 	errorMessage: "",
 };
 
-const copy = (obj) => JSON.parse(JSON.stringify(obj));
 
 export const appReducer = (state = initialState, action) => {
 	if (action.type === SET_ITEM) {
