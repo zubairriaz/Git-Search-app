@@ -64,7 +64,7 @@ const getCss = (items) =>
 const defaultCss = (top) => {
 	return {
 		margin: "auto",
-		width: "35%",
+		width: "45%",
 		marginTop: `${top}%`,
 	};
 };
