@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Check If Results Table Loads Successfully 1`] = `ShallowWrapper {}`;
+
+exports[`Check If Search Loads Successfully 1`] = `ShallowWrapper {}`;

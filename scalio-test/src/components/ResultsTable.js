@@ -24,7 +24,7 @@ export default function ResultsTable({ columns, data, currentPage, pages, setPag
 		setItems(sortedData);
 	}, [data]);
 
-	const SortByColumn = (column) => {
+	function SortByColumn(column) {
 		let sortedData, updatedColumns;
 		let col = stateColumns.filter((column) => column.isSorted)[0];
 		if (col.key == column.key) {

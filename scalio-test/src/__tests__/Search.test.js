@@ -26,7 +26,7 @@ test("Form can be submited", () => {
     const mockSubmit = jest.fn();
     const { debug, queryByTestId } = render(<Search onSubmitForm={mockSubmit}/>);
 
-    fireEvent.submit(queryByTestId("form"));
+    fireEvent.click(queryByTestId("submit-button"));
 
     expect(mockSubmit).toHaveBeenCalled(); // Test if handleSubmit has been called 
 
