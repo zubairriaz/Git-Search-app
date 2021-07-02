@@ -4,7 +4,7 @@ import { render, screen, waitFor, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event'
 
 
-import Search from '../components/Search';
+import Search from '../components/search/Search';
 import {StoreProvider} from "../store/Store"
 
 

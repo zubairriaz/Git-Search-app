@@ -3,7 +3,7 @@ import React from 'react';
 import {  render} from '@testing-library/react';
 
 
-import ResultsTable from '../components/ResultsTable';
+import ResultsTable from '../components/results/ResultsTable';
 import {StoreProvider} from "../store/Store"
 import {columns} from "../utils/constants"
 
