@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from "react";
 import ResultTable from "./ResultsTable";
 import { columns } from "../../utils/constants";
@@ -19,10 +18,7 @@ export default function Results({ item, searchTerm }) {
 	}
 
 	useEffect(() => {
-		setStateItem(item);
-	}, []);
-
-	useEffect(() => {
+		console.log("it hits first time");
 		if (
 			stateItem.total_count !== item.total_count &&
 			JSON.stringify(stateItem.items) !== JSON.stringify(item.items)

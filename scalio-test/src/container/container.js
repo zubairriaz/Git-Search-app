@@ -11,10 +11,8 @@ import { url } from "../utils/constants";
 const Results = lazy(() => import("../components/results/Results"));
 
 function Container() {
-	const [state] = useStore();
 	const [searchTerm, setSearchTerm] = useState("");
-	const [_, dispatch, apiRequest] = useStore();
-	console.log(dispatch,_)
+	const [state, dispatch, apiRequest] = useStore();
 
 	const onChangeText = useCallback(
 		(e) => setSearchTerm(e.target.value),[]
